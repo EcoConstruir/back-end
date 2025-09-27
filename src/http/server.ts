@@ -13,8 +13,8 @@ server.addHook('onSend', async (request, reply, payload) => {
 });
 
 
-server.patch("/teste",(request:any,response)=>{
-    return
+server.get("/",()=>{
+    return "Teste"
 })
 
 server.listen({
