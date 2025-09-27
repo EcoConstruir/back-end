@@ -8,13 +8,13 @@ server.register(cors, {
 
 // Middleware para configurar CSP
 server.addHook('onSend', async (request, reply, payload) => {
-    reply.header('Content-Security-Policy', "default-src 'self'; connect-src 'self' https://ourchat-ii0z.onrender.com"); 
+    reply.header('Content-Security-Policy', "default-src 'self'; connect-src 'self' https://back-end-2lpw.onrender.com"); 
     return payload;
 });
 
 
 server.patch("/teste",(request:any,response)=>{
-    return 
+    return
 })
 
 server.listen({
