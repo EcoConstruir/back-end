@@ -1,5 +1,6 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
+import { requestHandler } from "../database/app"
 
 const server = Fastify()
 server.register(cors, {
@@ -13,8 +14,12 @@ server.addHook('onSend', async (request, reply, payload) => {
 });
 
 
-server.get("/",()=>{
+server.get("/",(request:any, response:any)=>{
     return "Teste"
+})
+
+server.get("/teste",(request:any, response:any)=>{
+    return requestHandler(request,response)
 })
 
 server.listen({

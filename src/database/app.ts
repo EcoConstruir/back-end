@@ -1,17 +1,10 @@
 require("dotenv").config();
 
-const http = require("http");
 const { neon } = require("@neondatabase/serverless");
 
 const sql = neon(process.env.DATABASE_URL);
 
-const requestHandler = async (req:any, res:any) => {
-  const result = await sql`SELECT version()`;
-  const { version } = result[0];
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end(version);
+export const requestHandler = async (req:any|void, res:any|void) => {
+  const result = await sql`SELECT * from people`;
+  return result
 };
-
-http.createServer(requestHandler).listen(3000, () => {
-  console.log("Server running at http://localhost:3000");
-});
